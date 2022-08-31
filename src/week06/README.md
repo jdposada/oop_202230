@@ -20,7 +20,12 @@ Define the purpose and flexibility of a class object; build its class methods us
 
 ## UML Diagram
 
+The simple diagram below allows a user to create as many categories as it wants and to keep track of budget items. The code for the diagram is in the `budget_uml.puml` file.
 
+![UML Diagram](https://github.com/jdposada/oop_202230/blob/master/src/week06/budget_uml.png?raw=true)
 
 ## Python Code
 
+A simple Python implementation using additions, substractions and dictionaries
+
+To test the new code please run `code_to_run.py`
