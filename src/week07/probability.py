@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, sample
 
 class Balls:
     def __init__(self, color: str, n_balls: int) -> None:
@@ -6,8 +6,7 @@ class Balls:
         self.n_balls = n_balls
 
 class Hat:
-    def __init__(self, total_balls: int, colors: list, n_balls: list) -> None:
-        self.total_balls = total_balls
+    def __init__(self, colors: list, n_balls: list) -> None:
         self.colors = colors
         self.n_balls = n_balls
         self.balls = {}
@@ -20,14 +19,36 @@ class Hat:
             self.balls.update({color: balls})
 
 class Experiment:
-    def __init__(self, hat: Hat, n_experiments) -> None:
+    def __init__(self, hat: Hat) -> None:
         self.hat = hat
-        self.n_experiments = n_experiments
     
-    def run_experiment(self, n_sample):
+    def run_experiment(self, n_sample: int):
         
         experiment_result = {}
-        for color in self.hat.colors:
+        # this function suffle the list randomly. This is it alters the order randomly
+        shuffled_colors = sample(population=self.hat.colors, 
+                                  k=len(self.hat.colors))
+
+        n_remaining = n_sample
+        for color in shuffled_colors:
             ball = self.hat.balls[color]
-            n_balls_experiment = randint(1, ball.n_balls)
-            experiment_result.update({color: n_balls_experiment})
+            if n_remaining > 0:
+                n_balls_experiment = randint(1, n_remaining)
+                experiment_result.update({color: n_balls_experiment / n_sample})
+                n_remaining = n_remaining - n_balls_experiment
+        
+        return experiment_result
+    
+    def run_multiple_experiments(self, n_experiments: int, n_sample: int):
+        
+        experiments = {color: [] for color in self.hat.colors}
+        for i in range(n_experiments):
+            experiment_result = self.run_experiment(n_sample=n_sample)
+
+            for color, prob in experiment_result.items():
+                experiments[color].append(prob)
+        
+        return experiments
+
+
+
