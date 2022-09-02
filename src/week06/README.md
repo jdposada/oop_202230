@@ -1,6 +1,6 @@
 # From problem definition to Implementation
 
-This week we will read a problem definition, propose a UML and implement the solution on Python
+This week we will read a problem definition, propose a UML and implement the solution on Python. The excercise is taken from [link](https://towardsdatascience.com/3-useful-projects-to-learn-python-classes-cf0076c36297)
 
 ## Problem Statement
 

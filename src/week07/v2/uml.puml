@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+
+class Hat{
+colors: list
+n_balls = int
+create_balls()
+}
+
+class Experiment{
+hat: Hat
+run_experiment(n_sample: int)
+run_multiple_experiments(n_experiments: int, n_sample: int)
+}
+
+Hat "1" --* "1" Experiment
+@enduml

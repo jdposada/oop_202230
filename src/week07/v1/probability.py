@@ -6,16 +6,16 @@ class Balls:
         self.n_balls = n_balls
 
 class Hat:
-    def __init__(self, colors: list, n_balls: list) -> None:
+    def __init__(self, colors: list, n_balls_list: list) -> None:
         self.colors = colors
-        self.n_balls = n_balls
+        self.n_balls_list = n_balls_list
         self.balls = {}
     
     def create_balls(self):
         for i in range(len(self.colors)):
             color = self.colors[i]
-            n_ball = self.n_balls[i]
-            balls = Balls(color=color, n_balls=n_ball)
+            n_balls = self.n_balls_list[i]
+            balls = Balls(color=color, n_balls=n_balls)
             self.balls.update({color: balls})
 
 class Experiment:

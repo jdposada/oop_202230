@@ -1,5 +1,5 @@
 # %%
-from probability import Balls, Hat, Experiment
+from probability import Hat, Experiment
 import matplotlib.pyplot as plt
 # %%
 hat = Hat(colors=['red', 'green', 'blue'],
