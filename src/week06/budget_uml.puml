@@ -1,0 +1,25 @@
+@startuml
+
+left to right direction
+
+class Budget {
+category: str
+innitial_balance: float
+running_balance: float
+get_running_balance()
+withdraw(amount: float)
+deposit(amount: float)
+}
+
+class User {
+name: str
+id: int
+total_budget: float
+budgets: dict
+add_budget(category: str, innitial_balance: float)
+transfer_balance(sender: str, receiver: str, amount: float)
+}
+
+Budget "*" --* "1" User
+
+@enduml
